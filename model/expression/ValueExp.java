@@ -1,0 +1,29 @@
+package model.expression;
+
+import exception.MyException;
+import model.adt.MyIDictionary;
+import model.adt.MyIHeap; // Added import
+import model.value.Value;
+import model.type.Type;
+
+public class ValueExp implements Exp {
+    private final Value e;
+
+    public ValueExp(Value e) {
+        this.e = e;
+    }
+
+    @Override
+    public Value eval(MyIDictionary<String, Value> tbl, MyIHeap<Integer, Value> heap) throws MyException {
+        return e;
+    }
+
+    @Override
+    public String toString() {
+        return e.toString();
+    }
+    @Override
+    public Type typecheck(MyIDictionary<String, Type> typeEnv) throws MyException {
+        return e.getType();
+    }
+}
